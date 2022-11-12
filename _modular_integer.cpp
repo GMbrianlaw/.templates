@@ -29,9 +29,9 @@ private:
     static auto normalize(int value) {
 
         if (value < 0) {
-            value += MOD;
-        } else if (value >= MOD) {
-            value -= MOD;
+            value += MODULO;
+        } else if (value >= MODULO) {
+            value -= MODULO;
         }
 
         return value;
@@ -42,9 +42,11 @@ private:
 
 public:
 
+    constexpr static auto MODULO = MOD;
+
     ModularInteger() {}
 
-    ModularInteger(long long value) : value(normalize(value % MOD)) {}
+    ModularInteger(long long value) : value(normalize(value % MODULO)) {}
 
     auto operator+() const {
 
@@ -62,7 +64,7 @@ public:
 
         ++value;
 
-        if (value == MOD) {
+        if (value == MODULO) {
             value = 0;
         }
 
@@ -71,7 +73,7 @@ public:
     auto operator--() {
 
         if (value == 0) {
-            value = MOD;
+            value = MODULO;
         }
 
         --value;
@@ -92,13 +94,13 @@ public:
 
     auto operator*=(const ModularInteger& other) {
 
-        value = static_cast<long long>(value) * other.value % MOD;
+        value = static_cast<long long>(value) * other.value % MODULO;
 
     }
 
     auto operator/=(const ModularInteger& other) {
 
-        *this *= exponentiate(other, MOD - 2);
+        *this *= exponentiate(other, MODULO - 2);
 
     }
 
