@@ -46,21 +46,21 @@ public:
 
     ModularInteger() {}
 
-    ModularInteger(long long value) : value(normalize(value % MODULO)) {}
+    explicit ModularInteger(long long value) : value(normalize(value % MODULO)) {}
 
-    auto operator+() const {
+    constexpr auto operator+() const {
 
         return ModularInteger(value);
 
     }
 
-    auto operator-() const {
+    constexpr auto operator-() const {
 
         return ModularInteger(-value);
 
     }
 
-    auto operator++() {
+    constexpr auto operator++() {
 
         ++value;
 
@@ -70,7 +70,7 @@ public:
 
     }
 
-    auto operator--() {
+    constexpr auto operator--() {
 
         if (value == 0) {
             value = MODULO;
@@ -80,31 +80,31 @@ public:
 
     }
 
-    auto operator+=(const ModularInteger& other) {
+    constexpr auto operator+=(const ModularInteger& other) {
 
         value = normalize(value + other.value);
 
     }
 
-    auto operator-=(const ModularInteger& other) {
+    constexpr auto operator-=(const ModularInteger& other) {
 
         value = normalize(value - other.value);
 
     }
 
-    auto operator*=(const ModularInteger& other) {
+    constexpr auto operator*=(const ModularInteger& other) {
 
         value = static_cast<long long>(value) * other.value % MODULO;
 
     }
 
-    auto operator/=(const ModularInteger& other) {
+    constexpr auto operator/=(const ModularInteger& other) {
 
         *this *= exponentiate(other, MODULO - 2);
 
     }
 
-    friend auto operator+(const ModularInteger& lhs, const ModularInteger& rhs) {
+    friend constexpr auto operator+(const ModularInteger& lhs, const ModularInteger& rhs) {
 
         auto result = lhs;
 
@@ -114,7 +114,7 @@ public:
 
     }
 
-    friend auto operator-(const ModularInteger& lhs, const ModularInteger& rhs) {
+    friend constexpr auto operator-(const ModularInteger& lhs, const ModularInteger& rhs) {
 
         auto result = lhs;
 
@@ -124,7 +124,7 @@ public:
 
     }
 
-    friend auto operator*(const ModularInteger& lhs, const ModularInteger& rhs) {
+    friend constexpr auto operator*(const ModularInteger& lhs, const ModularInteger& rhs) {
 
         auto result = lhs;
 
@@ -134,7 +134,7 @@ public:
 
     }
 
-    friend auto operator/(const ModularInteger& lhs, const ModularInteger& rhs) {
+    friend constexpr auto operator/(const ModularInteger& lhs, const ModularInteger& rhs) {
 
         auto result = lhs;
 
