@@ -48,6 +48,12 @@ public:
 
     explicit ModularInteger(long long value) : value(normalize(value % MODULO)) {}
 
+    constexpr auto get() const {
+
+        return value;
+
+    }
+
     constexpr auto operator+() const {
 
         return ModularInteger(value);
