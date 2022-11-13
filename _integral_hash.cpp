@@ -9,7 +9,7 @@ class IntegralHash {
 
 private:
 
-    const ll ticks = steady_clock::now().time_since_epoch().count();
+    const long long ticks = steady_clock::now().time_since_epoch().count();
 
 public:
 
