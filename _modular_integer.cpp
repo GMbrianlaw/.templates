@@ -1,8 +1,6 @@
-#include <istream>
-#include <ostream>
+#include <iostream>
 
-using std::istream;
-using std::ostream;
+using std::cin;
 
 template <typename T>
 auto exponentiate(T base, long long power) {
@@ -51,6 +49,22 @@ public:
     constexpr auto get() const {
 
         return value;
+
+    }
+
+    auto read() {
+
+        auto input = 0ll;
+
+        cin >> input;
+
+        input %= MODULO;
+
+        if (input < 0) {
+            input += MODULO;
+        }
+
+        value = input;
 
     }
 
@@ -147,26 +161,6 @@ public:
         result /= rhs;
 
         return result;
-
-    }
-
-    friend auto& operator>>(istream& input, ModularInteger& integer) {
-
-        auto value_ = 0ll;
-
-        input >> value_;
-
-        integer = ModularInteger(integer);
-
-        return input;
-
-    }
-
-    friend auto& operator<<(ostream& output, ModularInteger& integer) {
-
-        output << integer.value;
-
-        return output;
 
     }
 
