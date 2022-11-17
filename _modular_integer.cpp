@@ -26,6 +26,8 @@ private:
 
     static auto normalize(int value) {
 
+        value %= MODULO;
+
         if (value < 0) {
             value += MODULO;
         } else if (value >= MODULO) {
@@ -44,9 +46,9 @@ public:
 
     ModularInteger() {}
 
-    explicit ModularInteger(long long value) : value(normalize(value % MODULO)) {}
+    explicit ModularInteger(long long value) : value(normalize(value)) {}
 
-    constexpr auto get() const {
+    operator auto() const {
 
         return value;
 
@@ -58,13 +60,7 @@ public:
 
         cin >> input;
 
-        input %= MODULO;
-
-        if (input < 0) {
-            input += MODULO;
-        }
-
-        value = input;
+        value = normalize(input);
 
     }
 
@@ -100,27 +96,27 @@ public:
 
     }
 
-    constexpr auto operator+=(const ModularInteger& other) {
+    constexpr auto operator+=(long long addend) {
 
-        value = normalize(value + other.value);
-
-    }
-
-    constexpr auto operator-=(const ModularInteger& other) {
-
-        value = normalize(value - other.value);
+        value = normalize(value + addend);
 
     }
 
-    constexpr auto operator*=(const ModularInteger& other) {
+    constexpr auto operator-=(long long subtrahend) {
 
-        value = static_cast<long long>(value) * other.value % MODULO;
+        value = normalize(value - subtrahend);
 
     }
 
-    constexpr auto operator/=(const ModularInteger& other) {
+    constexpr auto operator*=(long long factor) {
 
-        *this *= exponentiate(other, MODULO - 2);
+        value = normalize(value * factor);
+
+    }
+
+    constexpr auto operator/=(long long divisor) {
+
+        *this *= exponentiate(divisor, MODULO - 2);
 
     }
 
