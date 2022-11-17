@@ -116,7 +116,7 @@ public:
 
     constexpr auto operator/=(long long divisor) {
 
-        *this *= exponentiate(divisor, MODULO - 2);
+        *this *= exponentiate(ModularInteger(divisor), MODULO - 2);
 
     }
 
