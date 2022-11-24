@@ -46,19 +46,29 @@ public:
 
     ModularInteger() {}
 
-    explicit ModularInteger(long long value) : value(normalize(value)) {}
+    explicit ModularInteger(long long value) {
 
-    operator auto() const {
-
-        return value;
+        assign(value);
 
     }
 
-    auto read() {
+    operator auto() const {
+
+        return static_cast<long long>(value);
+
+    }
+
+    auto assign() {
 
         auto input = 0ll;
 
         cin >> input;
+
+        assign(input);
+
+    }
+
+    auto assign(long long input) {
 
         value = normalize(input);
 
