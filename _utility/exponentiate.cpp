@@ -1,5 +1,5 @@
 template <typename T>
-auto exponentiate(T base, long long power) {
+constexpr auto exponentiate(T base, long long power) {
 
     auto result = T(1);
 
