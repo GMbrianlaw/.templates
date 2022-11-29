@@ -1,20 +1,20 @@
 #include <iostream>
 #include <ostream>
 
-using std::cout;
-using std::flush;
+using std::clog;
+using std::endl;
 
 template <typename T>
 auto debug(T value) {
 
-    cout << value << '\n' << flush;
+    clog << value << endl;
 
 }
 
 template <typename T, typename... Rest>
 auto debug(T value, Rest... rest) {
 
-    cout << value << ' ' << flush;
+    clog << value << ' ';
 
     debug(rest...);
 
