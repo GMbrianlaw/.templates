@@ -7,13 +7,11 @@ using std::size_t;
 template <typename T>
 class IntegralHash {
 
-private:
-
-    const unsigned long long constant = steady_clock::now().time_since_epoch().count();
-
 public:
 
     auto operator()(T value) const {
+
+        static const unsigned long long constant = steady_clock::now().time_since_epoch().count();
 
         auto result = static_cast<unsigned long long>(value);
 
