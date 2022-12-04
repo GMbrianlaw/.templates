@@ -12,7 +12,7 @@ private:
 public:
 
     template <typename U>
-    YCombinator(U&& lambda) : lambda(lambda) {}
+    explicit YCombinator(U&& lambda) : lambda(lambda) {}
 
     template<typename... Arguments>
     decltype(auto) operator()(Arguments&&... arguments) const {
