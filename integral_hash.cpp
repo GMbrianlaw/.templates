@@ -18,7 +18,7 @@ public:
         result += constant + 0x9e3779b97f4a7c15;
         result = (result ^ (result >> 30)) * 0xbf58476d1ce4e5b9;
         result = (result ^ (result >> 27)) * 0x94d049bb133111eb;
-        result = result ^ (result >> 31);
+        result ^= result >> 31;
 
         return static_cast<size_t>(result);
 
