@@ -1,7 +1,5 @@
 #include <iostream>
 
-using std::cin;
-
 template <typename T>
 auto exponentiate(T base, long long power) {
 
@@ -62,7 +60,7 @@ public:
 
         auto input = 0ll;
 
-        cin >> input;
+        std::cin >> input;
 
         assign(input);
 

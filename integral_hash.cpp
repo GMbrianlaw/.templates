@@ -1,9 +1,6 @@
 #include <chrono>
 #include <cstddef>
 
-using std::chrono::steady_clock;
-using std::size_t;
-
 template <typename T>
 class IntegralHash {
 
@@ -11,7 +8,9 @@ public:
 
     auto operator()(T value) const {
 
-        static const unsigned long long constant = steady_clock::now().time_since_epoch().count();
+        static const auto constant = static_cast<unsigned long long>(
+            std::chrono::steady_clock::now().time_since_epoch().count()
+        );
 
         auto result = static_cast<unsigned long long>(value);
 
@@ -20,7 +19,7 @@ public:
         result = (result ^ (result >> 27)) * 0x94d049bb133111eb;
         result ^= result >> 31;
 
-        return static_cast<size_t>(result);
+        return static_cast<std::size_t>(result);
 
     }
 

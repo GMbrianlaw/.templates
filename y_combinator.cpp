@@ -1,7 +1,5 @@
 #include <utility>
 
-using std::forward;
-
 template <typename T>
 class YCombinator {
 
@@ -17,7 +15,7 @@ public:
     template<typename... Arguments>
     decltype(auto) operator()(Arguments&&... arguments) const {
 
-        return lambda(*this, forward<Arguments>(arguments)...);
+        return lambda(*this, std::forward<Arguments>(arguments)...);
 
     }
 
