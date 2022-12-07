@@ -1,7 +1,7 @@
 #include <cstddef>
 #include <functional>
 
-template <typename T, typename Hash = std::hash<typename T::value_type>>
+template <typename Container, typename Hash = std::hash<typename Container::value_type>>
 class ContainerHash {
 
 private:
@@ -10,7 +10,7 @@ private:
 
 public:
 
-    auto operator()(const T& value) const {
+    auto operator()(const Container& value) const {
 
         auto result = 0llu;
 
