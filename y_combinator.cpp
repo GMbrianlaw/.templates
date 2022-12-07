@@ -1,16 +1,16 @@
 #include <utility>
 
-template <typename T>
+template <typename Callable>
 class YCombinator {
 
 private:
 
-    const T lambda = nullptr;
+    const Callable lambda = nullptr;
 
 public:
 
-    template <typename U>
-    explicit YCombinator(U&& lambda) : lambda(lambda) {}
+    template <typename Lambda>
+    explicit YCombinator(Lambda&& lambda) : lambda(lambda) {}
 
     template<typename... Arguments>
     decltype(auto) operator()(Arguments&&... arguments) const {
@@ -21,5 +21,5 @@ public:
 
 };
 
-template <typename T>
-YCombinator(T) -> YCombinator<T>;
+template <typename Lambda>
+YCombinator(Lambda) -> YCombinator<Lambda>;

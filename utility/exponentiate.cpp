@@ -1,7 +1,7 @@
-template <typename T>
-constexpr auto exponentiate(T base, long long power) {
+template <typename NumericType>
+constexpr auto exponentiate(NumericType base, long long power) {
 
-    auto result = T(1);
+    auto result = NumericType(1);
 
     while (power) {
         if (power & 1) {

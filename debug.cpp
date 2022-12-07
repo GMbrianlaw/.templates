@@ -1,15 +1,15 @@
 #include <iostream>
 #include <ostream>
 
-template <typename T>
-auto debug(T value) {
+template <typename Type>
+auto debug(Type value) {
 
     std::clog << value << std::endl;
 
 }
 
-template <typename T, typename... Rest>
-auto debug(T value, Rest... rest) {
+template <typename Type, typename... Rest>
+auto debug(Type value, Rest... rest) {
 
     std::clog << value << ' ';
 

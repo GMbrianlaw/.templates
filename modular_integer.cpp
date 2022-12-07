@@ -1,9 +1,9 @@
 #include <iostream>
 
-template <typename T>
-auto exponentiate(T base, long long power) {
+template <typename NumericType>
+auto exponentiate(NumericType base, long long power) {
 
-    auto result = T(1);
+    auto result = NumericType(1);
 
     while (power) {
         if (power & 1) {

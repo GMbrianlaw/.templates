@@ -1,12 +1,12 @@
 #include <chrono>
 #include <cstddef>
 
-template <typename T>
+template <typename NumericType>
 class IntegralHash {
 
 public:
 
-    auto operator()(T value) const {
+    auto operator()(NumericType value) const {
 
         static const auto constant = static_cast<unsigned long long>(
             std::chrono::steady_clock::now().time_since_epoch().count()
