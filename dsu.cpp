@@ -15,7 +15,7 @@ public:
 
         parents.resize(size);
 
-        iota(parents.begin(), parents.end(), 0);
+        std::iota(parents.begin(), parents.end(), 0);
 
         sizes.assign(size, 1);
 

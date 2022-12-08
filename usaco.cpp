@@ -4,7 +4,7 @@ using std::ifstream;
 using std::ofstream;
 
 auto fin = ifstream(".in");
-auto fout = ifstream(".out");
+auto fout = ofstream(".out");
 
 auto solve() {
 
