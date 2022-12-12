@@ -10,12 +10,12 @@ private:
 
 public:
 
-    auto operator()(const Container& value) const {
+    auto operator()(const Container& container) const {
 
         auto result = 0llu;
 
-        for (const auto& x : value) {
-            result ^= hash_t(x) + 0x9e3779b97f4a7c15 + (result << 6) + (result >> 2);
+        for (const auto& x : container) {
+            result ^= hash_t(x) + (result << 6) + (result >> 2) + 0x9e3779b97f4a7c15ll;
         }
 
         return static_cast<std::size_t>(result);

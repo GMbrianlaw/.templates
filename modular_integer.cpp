@@ -1,5 +1,3 @@
-#include <iostream>
-
 template <typename NumericType>
 auto exponentiate(NumericType base, long long power) {
 
@@ -53,16 +51,6 @@ public:
     operator auto() const {
 
         return static_cast<long long>(value);
-
-    }
-
-    auto assign() {
-
-        auto input = 0ll;
-
-        std::cin >> input;
-
-        assign(input);
 
     }
 
