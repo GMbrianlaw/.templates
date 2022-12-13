@@ -6,7 +6,7 @@ class ContainerHash {
 
 private:
 
-    static const auto hash_t = Hash();
+    static constexpr auto hash_t = Hash();
 
 public:
 
