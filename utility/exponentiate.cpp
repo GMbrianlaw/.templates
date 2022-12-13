@@ -1,7 +1,7 @@
-template <typename NumericType>
-constexpr auto exponentiate(NumericType base, long long power) {
+template <typename IntegralType>
+constexpr auto exponentiate(IntegralType base, long long power) {
 
-    auto result = NumericType(1);
+    auto result = IntegralType(1);
 
     while (power) {
         if (power & 1) {

@@ -2,7 +2,7 @@
 #include <utility>
 #include <vector>
 
-class DSU {
+class DisjointSetUnion {
 
 private:
 
@@ -11,7 +11,7 @@ private:
 
 public:
 
-    explicit DSU(int size) {
+    explicit DisjointSetUnion(int size) {
 
         parents.resize(size);
 
