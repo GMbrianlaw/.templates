@@ -31,3 +31,10 @@ auto precompute() {
     }
 
 }
+
+// fold 4j
+auto isPrime(int number) {
+
+    return factors[number] == number;
+
+}
