@@ -1,3 +1,4 @@
+// fold 15j
 template <typename IntegralType>
 constexpr auto exponentiate(IntegralType base, long long power) {
 

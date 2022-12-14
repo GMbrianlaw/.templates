@@ -1,6 +1,7 @@
 #include <cstddef>
 #include <functional>
 
+// fold 21j
 template <typename Container, typename Hash = std::hash<typename Container::value_type>>
 class ContainerHash {
 

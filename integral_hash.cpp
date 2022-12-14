@@ -1,6 +1,7 @@
 #include <chrono>
 #include <cstddef>
 
+// fold 22j
 template <typename IntegralType>
 class IntegralHash {
 

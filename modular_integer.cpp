@@ -1,3 +1,4 @@
+// fold 15j
 template <typename NumericType>
 auto exponentiate(NumericType base, long long power) {
 
@@ -15,6 +16,7 @@ auto exponentiate(NumericType base, long long power) {
 
 }
 
+// fold 141j
 template <int MOD>
 class ModularInteger {
 
