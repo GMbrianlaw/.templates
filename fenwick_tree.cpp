@@ -1,7 +1,7 @@
 #include <vector>
 
 // fold 61j
-template <typename T, typename BinaryOperation>
+template <typename T, typename BinaryOperation, typename InverseOperation>
 class FenwickTree {
 
 private:
@@ -9,13 +9,15 @@ private:
     const BinaryOperation combine = nullptr;
     std::vector<T> data = std::vector<T>();
     const T identity = T();
+    const InverseOperation invert = nullptr;
     const int size = 0;
 
 public:
 
     FenwickTree(
-        int size, const T& identity, BinaryOperation combine = BinaryOperation()
-    ) : combine(combine), identity(identity), size(size) {
+        int size, const T& identity, BinaryOperation combine = BinaryOperation(),
+        InverseOperation invert = InverseOperation()
+    ) : combine(combine), identity(identity), invert(invert), size(size) {
 
         data.assign(size, identity);
 
@@ -23,8 +25,8 @@ public:
 
     FenwickTree(
         const std::vector<T>& information, const T& identity,
-        BinaryOperation combine = BinaryOperation()
-    ) : FenwickTree(information.size(), identity, combine) {
+        BinaryOperation combine = BinaryOperation(), InverseOperation invert = InverseOperation()
+    ) : FenwickTree(information.size(), identity, combine, invert) {
 
         for (auto i = 0; i < static_cast<int>(information.size()); ++i) {
             update(i, information[i]);
@@ -49,7 +51,7 @@ public:
 
     auto query(int left_index, int right_index) {
 
-        return query(right_index) - query(left_index);
+        return invert(query(right_index), query(left_index));
 
     }
 

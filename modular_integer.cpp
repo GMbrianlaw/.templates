@@ -62,19 +62,19 @@ public:
 
     }
 
-    constexpr auto operator+() const {
+    auto operator+() const {
 
         return ModularInteger(value);
 
     }
 
-    constexpr auto operator-() const {
+    auto operator-() const {
 
         return ModularInteger(-value);
 
     }
 
-    constexpr auto operator++() {
+    auto operator++() {
 
         ++value;
 
@@ -84,7 +84,7 @@ public:
 
     }
 
-    constexpr auto operator--() {
+    auto operator--() {
 
         if (value == 0) {
             value = MODULO;
@@ -94,31 +94,31 @@ public:
 
     }
 
-    constexpr auto operator+=(long long addend) {
+    auto operator+=(long long addend) {
 
         value = normalize(value + addend);
 
     }
 
-    constexpr auto operator-=(long long subtrahend) {
+    auto operator-=(long long subtrahend) {
 
         value = normalize(value - subtrahend);
 
     }
 
-    constexpr auto operator*=(long long factor) {
+    auto operator*=(long long factor) {
 
         value = normalize(value * factor);
 
     }
 
-    constexpr auto operator/=(long long divisor) {
+    auto operator/=(long long divisor) {
 
         *this *= exponentiate(ModularInteger(divisor), MODULO - 2);
 
     }
 
-    friend constexpr auto operator+(const ModularInteger& lhs, const ModularInteger& rhs) {
+    friend auto operator+(const ModularInteger& lhs, const ModularInteger& rhs) {
 
         auto result = lhs;
 
@@ -128,7 +128,7 @@ public:
 
     }
 
-    friend constexpr auto operator-(const ModularInteger& lhs, const ModularInteger& rhs) {
+    friend auto operator-(const ModularInteger& lhs, const ModularInteger& rhs) {
 
         auto result = lhs;
 
@@ -138,7 +138,7 @@ public:
 
     }
 
-    friend constexpr auto operator*(const ModularInteger& lhs, const ModularInteger& rhs) {
+    friend auto operator*(const ModularInteger& lhs, const ModularInteger& rhs) {
 
         auto result = lhs;
 
@@ -148,7 +148,7 @@ public:
 
     }
 
-    friend constexpr auto operator/(const ModularInteger& lhs, const ModularInteger& rhs) {
+    friend auto operator/(const ModularInteger& lhs, const ModularInteger& rhs) {
 
         auto result = lhs;
 
