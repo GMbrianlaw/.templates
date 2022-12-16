@@ -16,25 +16,11 @@ auto exponentiate(NumericType base, long long power) {
 
 }
 
-// fold 141j
+// fold 145j
 template <int MOD>
 class ModularInteger {
 
 private:
-
-    static auto normalize(int value) {
-
-        value %= MODULO;
-
-        if (value < 0) {
-            value += MODULO;
-        } else if (value >= MODULO) {
-            value -= MODULO;
-        }
-
-        return value;
-
-    }
 
     int value = 0;
 
@@ -44,21 +30,19 @@ public:
 
     ModularInteger() {}
 
-    explicit ModularInteger(long long value) {
+    explicit ModularInteger(long long initial) {
 
-        assign(value);
+        value = initial % MODULO;
 
-    }
-
-    operator auto() const {
-
-        return static_cast<long long>(value);
+        if (value < 0) {
+            value += MODULO;
+        }
 
     }
 
-    auto assign(long long input) {
+    explicit operator auto() const {
 
-        value = normalize(input);
+        return static_cast<int>(value);
 
     }
 
@@ -94,27 +78,35 @@ public:
 
     }
 
-    auto operator+=(long long addend) {
+    auto operator+=(const ModularInteger& other) {
 
-        value = normalize(value + addend);
+        value += other.value;
 
-    }
-
-    auto operator-=(long long subtrahend) {
-
-        value = normalize(value - subtrahend);
+        if (value >= MODULO) {
+            value -= MODULO;
+        }
 
     }
 
-    auto operator*=(long long factor) {
+    auto operator-=(const ModularInteger& other) {
 
-        value = normalize(value * factor);
+        value -= other.value;
+
+        if (value < 0) {
+            value += MODULO;
+        }
 
     }
 
-    auto operator/=(long long divisor) {
+    auto operator*=(const ModularInteger& other) {
 
-        *this *= exponentiate(ModularInteger(divisor), MODULO - 2);
+        value = static_cast<long long>(value) * other.value % MODULO;
+
+    }
+
+    auto operator/=(const ModularInteger& other) {
+
+        *this *= exponentiate(other, MODULO - 2);
 
     }
 
@@ -142,7 +134,7 @@ public:
 
         auto result = lhs;
 
-        lhs *= rhs;
+        result *= rhs;
 
         return result;
 
@@ -155,6 +147,18 @@ public:
         result /= rhs;
 
         return result;
+
+    }
+
+    friend auto operator==(const ModularInteger& lhs, const ModularInteger& rhs) {
+
+        return lhs.value == rhs.value;
+
+    }
+
+    friend auto operator!=(const ModularInteger& lhs, const ModularInteger& rhs) {
+
+        return lhs.value != rhs.value;
 
     }
 
