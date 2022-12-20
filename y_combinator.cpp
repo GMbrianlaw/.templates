@@ -1,6 +1,6 @@
 #include <utility>
 
-// fold 19j
+// fold 22j
 template <typename FunctionObject>
 class YCombinator {
 
@@ -22,6 +22,5 @@ public:
 
 };
 
-// fold j
 template <typename Lambda>
 YCombinator(Lambda) -> YCombinator<Lambda>;
