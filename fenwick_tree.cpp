@@ -14,7 +14,7 @@ private:
 
 public:
 
-    FenwickTree(
+    explicit FenwickTree(
         int size, const T& identity, BinaryOperation combine = BinaryOperation(),
         InverseOperation invert = InverseOperation()
     ) : combine(combine), identity(identity), invert(invert), size(size) {
@@ -23,7 +23,7 @@ public:
 
     }
 
-    FenwickTree(
+    explicit FenwickTree(
         const std::vector<T>& information, const T& identity,
         BinaryOperation combine = BinaryOperation(), InverseOperation invert = InverseOperation()
     ) : FenwickTree(information.size(), identity, combine, invert) {

@@ -28,7 +28,7 @@ public:
 
     constexpr static auto MODULO = MOD;
 
-    ModularInteger() {}
+    ModularInteger() = default;
 
     explicit ModularInteger(long long initial) {
 

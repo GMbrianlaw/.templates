@@ -47,7 +47,10 @@ public:
             }
             parents[node_2] = node_1;
             sizes[node_1] += sizes[node_2];
+            return true;
         }
+
+        return false;
 
     }
 
