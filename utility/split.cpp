@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 
+// fold 20j
 template <typename CharT>
 auto split(const std::basic_string<CharT>& str, const CharT* delimiters) {
 
