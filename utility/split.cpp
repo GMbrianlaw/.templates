@@ -1,18 +1,16 @@
 #include <string>
 #include <vector>
 
-using std::string;
-using std::vector;
-
-auto split(const string& str, const char* delimiters) {
+template <typename CharT>
+auto split(const std::basic_string<CharT>& str, const CharT* delimiters) {
 
     auto reached = 0;
     const auto str_sz = static_cast<int>(str.size());
-    auto tokens = vector<string>();
+    auto tokens = std::vector<std::basic_string<CharT>>();
 
     while (reached < str_sz) {
         const auto position = static_cast<int>(str.find_first_of(delimiters, reached));
-        if (position == static_cast<int>(string::npos)) {
+        if (position == static_cast<int>(std::string::npos)) {
             break;
         }
         tokens.push_back(str.substr(reached, position - reached));
