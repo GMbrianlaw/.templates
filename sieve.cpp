@@ -6,13 +6,11 @@ using std::vector;
 
 constexpr auto SIEVE_MAX = 0;
 
-auto factors = array<int, SIEVE_MAX + 1>();
-auto primes = vector<int>();
-
 // fold 20j
 auto precompute() {
 
-    primes.reserve(SIEVE_MAX / 3 + 2);
+    auto factors = array<int, SIEVE_MAX + 1>();
+    auto primes = vector<int>();
 
     for (auto i = 2; i <= SIEVE_MAX; ++i) {
         if (factors[i] == 0) {
@@ -29,12 +27,5 @@ auto precompute() {
             }
         }
     }
-
-}
-
-// fold 4j
-auto isPrime(int number) {
-
-    return factors[number] == number;
 
 }
