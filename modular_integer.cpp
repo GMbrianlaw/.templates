@@ -163,3 +163,8 @@ public:
     }
 
 };
+
+// constexpr auto MODULO = 998'244'353;
+// constexpr auto MODULO = 1'000'000'007;
+
+// using Integer = ModularInteger<MODULO>;
