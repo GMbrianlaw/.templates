@@ -16,6 +16,10 @@ auto factorize(int number) {
         }
     }
 
+    if (number > 1) {
+        factors.push_back(number);
+    }
+
     return factors;
 
 }
