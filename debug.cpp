@@ -28,9 +28,9 @@ auto debug_container(const Type& value) {
         std::clog << value[i];
         if (i < value_sz - 1) {
             std::clog << ", ";
-        } else {
-            std::clog << ']' << std::endl;
         }
     }
+
+    std::clog << ']' << std::endl;
 
 }
